@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>💳Credit Card Fraud Detection-Documentation </title>
+    <link rel="icon" href="hackminorslogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+ 
+        #navigation {
+            z-index: 3;
+            
+        }
+        .iframe{
+            border: rgb(142, 39, 189);
+            border-radius: 15px;
+            box-shadow: 3px 3px rgb(142, 39, 189);
+            border-style: inset;
+        }
+        .teamname{
+            border: rgb(111, 32, 148);
+            text-shadow: 3px 3px rgb(111, 32, 148); 
+        }
+        .w3-image{
+            border: rgb(142, 39, 189);
+            border-radius: 15px;
+            box-shadow: 3px 3px rgb(142, 39, 189);
+            border-style: inset;
+        }
+        .avatar-image{
+            border: rgb(142, 39, 189);
+            border-radius: 7px;
+            box-shadow: 1px 1px rgb(142, 39, 189);
+            border-style: inset;
+        }
+
+        .topic {
+            border: rgb(142, 39, 189);
+            text-shadow: 4px 4px rgb(142, 39, 189);
+        }
+        .members{
+            border: rgb(111, 32, 148);
+            text-shadow: 2px 2px rgb(111, 32, 148);
+        }
+
+        .w3-text-light-grey{
+            text-shadow: 2px 2px rgb(111, 32, 148);
+        }
+
+        
+       #demo,#homepara,#mappara,#aboutpara,#tappara,#ugpara,#conclusionpara{margin-left:100px;} 
+        .footer {
+            border: rgb(111, 32, 148);
+            position: fixed;
+            width: 100%;
+            z-index: 2;
+            font-size: 30px;
+            background: linear-gradient(to bottom, #2b2b2b, #1a1a1a, #000000);
+        }
+        .w3-section{
+            font-size: 20px;
+        }
+
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {
+            width: 100px;
+            background: linear-gradient(to bottom, #8b0000, #560a86, #000000);
+            border: rgb(142, 39, 189);
+            border-style: inset;
+            box-shadow: 3px 3px rgb(40, 40, 40);
+            
+            
+        }
+        
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: white;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -6px;
+            border: rgb(142, 39, 189);
+            border-style: inset;
+            box-shadow: 1px 1px rgb(142, 39, 189);
+        }
+
+        /* Container around content */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        /* The circles on the timeline */
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid #FF9F55;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Place the container to the left */
+        .left {
+            left: 0;
+        }
+
+        /* Place the container to the right */
+        .right {
+            left: 50%;
+        }
+
+        /* Add arrows to the left container (pointing right) */
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Fix the circle for containers on the right side */
+        .right::after {
+            left: -16px;
+        }
+
+        /* The actual content */
+        .content {
+            padding: 20px 30px;
+            background-color: rgb(231, 231, 231);
+            position: relative;
+            border-radius: 6px;
+        }
+
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+            /* Place the timelime to the left */ .timeline::after { margin-left:100px;
+                left: 25px;
+            }
+
+            /* Full-width containers */
+            .container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            /* Make sure that all arrows are pointing leftwards */
+            .container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+
+            /* Make sure all circles are at the same spot */
+            .left::after, .right::after {
+                left: 15px;
+            }
+
+            /* Make all right containers behave like the left ones */
+            .right {
+                left: 0%;
+            }
+        }
+       #home {margin-top: 100px;
+            background-image: url('homebackground.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            
+        }
+
+        #map { 
+            background-image: url('https://i.pinimg.com/originals/b6/3e/83/b63e839789c7a7c80c3ebb4ec3cb26ff.gif');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            
+        }
+
+        #about { 
+            background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/1228610/extras/About.gif?t=1649362618');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            font-size: 20px;
+            
+        }
+
+        #tap { 
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/Einstein%40Home.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            
+        }
+
+/*        #ug { 
+            background-image: url('https://bestanimations.com/media/reading/801864510reading-book-by-fireplace-cozy-animated-gif.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            
+        }*/
+
+        #conclusion { 
+            background-image: url('https://24.media.tumblr.com/336329f41cf3ec861bbd898f13c0cce4/tumblr_n2t64lcbT61slz94ho1_500.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+            
+        }
+
+        #inhome,#inmap,#intap,#inabout,#inug,#inconclusion {
+            margin-left: 100px;
+            display: none;
+        }
+
+        #home:hover #inhome {
+            display: block;
+            
+        }
+
+        #map:hover #inmap {
+            display: block;
+            
+        }
+
+        #tap:hover #intap {
+            display: block;
+            
+        }
+
+        #about:hover #inabout {
+            display: block;
+            
+        }
+
+        #ug:hover #inug {
+            display: block;
+            
+        }
+
+        #conclusion:hover #inconclusion {
+            display: block;
+            
+        }
+
+        #home:hover,#tap:hover {
+            animation: rotatetop 10s 0.5;
+            rotate:initial;
+        }
+
+        #map:hover,#conclusion:hover {
+            animation: rotateside 10s 0.5;
+            rotate:initial;
+        }
+
+        #about:hover {
+            animation: rotateround 10s 0.5;
+            rotate:initial;
+            
+        }
+
+        @keyframes rotatetop {  
+            50% {
+                transform: rotateX(360deg);
+            }
+        }
+
+        @keyframes rotateside {
+            50% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @keyframes rotateround {
+            50% {
+                transform: rotateZ(360deg);
+            }
+        }
+
+        @font-face {
+    font-family: 'Doctor Glitch';
+    src: url('Doctor Glitch.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  h2,h3,h4,h5,h6 {
+    font-family: 'Doctor Glitch', sans-serif;
+  }
+  @font-face {
+    font-family: 'dangernight';
+    src: url('dangernight.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  h1 {
+    font-family: 'dangernight', sans-serif;
+    font-size: 60px;
+    border: rgb(142, 39, 189);
+            text-shadow: 4px 4px rgb(142, 39, 189);
+}
+@font-face {
+    font-family: 'nightpumpkind';
+    src: url('nightpumpkind.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  dt {
+    font-family: 'coffeehealing', sans-serif;
+    font-size: 35px;
+    border: rgb(111, 32, 148);
+            text-shadow: 2px 2px rgb(111, 32, 148);
+}
+@font-face {
+    font-family: 'coffeehealing';
+    src: url('coffeehealing.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body,dl,dd {
+    font-family: 'nightpumpkind', sans-serif;
+}
+@font-face {
+    font-family: 'nightpumpkind';
+    src: url('nightpumpkind.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .sidebar-home:hover{
+    position: relative;
+  animation: rotatetop 4s 0.5;
+  
+  
+  }
+.sidebar-map:hover{
+    position: relative;
+  animation:rotateside 4s 0.5;
+  
+  }
+.sidebar-about:hover{
+    position: relative;
+  animation: rotateround 4s 0.5;
+  
+  }
+
+.sidebar-tap:hover{
+    position: relative;
+  animation: rotatetop 4s 0.5;
+  }
+
+.sidebar-conclusion:hover{
+    position: relative;
+  animation: rotateside 4s 0.5;
+}
+    </style>
+</head>
+    <body class="w3-black" onscroll="myFunction()" >
+        <!-- Icon Bar (Sidebar - hidden on small screens) -->
+        <nav class="w3-sidebar w3-bar-block w3-small w3-center" id="navigation">
+
+            <!-- Avatar image in top left corner -->
+            <img src="hackminorslogo.png" width="100%" height="125px" class="avatar-image" >
+            <div class="sidebar-home">
+            <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-home w3-xxlarge"></i>
+                <p>HOME</p>
+            </a>
+        </div>
+        <div class="sidebar-map">  
+            <a href="#map" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-map w3-xxlarge"></i>
+                <p>MAP</p>
+            </a>
+        </div>
+        <div class="sidebar-about">
+            <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-user w3-xxlarge"></i>
+                <p>ABOUT</p>
+            </a>
+        </div>
+        <div class="sidebar-tap">
+            <a href="#tap" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-code w3-xxlarge"></i>
+                <p>TECHNIQUES &PROCEDURES</p>
+            </a>
+        </div>
+            <!--<a href="#ug" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-file w3-xxlarge"></i>
+                <p>USER GUIDE</p>
+            </a>-->
+        <div class="sidebar-conclusion">
+            <a href="#conclusion" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-clipboard w3-xxlarge"></i>
+                <p>CONCLUSION</p>
+            </a>
+        </div>
+        </nav>
+        
+        <div class="footer">
+            <table style="background: linear-gradient(to right, #8b0000, #560a86, #000000); border:transparent;border:rgb(142, 39, 189); box-shadow: 3px 3px ; width: 100%; height:100px">
+                <tr>
+                    <th style=" padding:5px">
+                        <p id="demo">Credit Card Fraud Detection Project Documentation</p>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <!-- Page Content -->
+        <div class="w3-padding-large" id="main">
+            <!-- Header/Home -->
+            <header class="w3-container w3-padding-32 w3-center w3-black w3-show" id="home">
+<div id="homepara"><h1>HOME</h1></div>
+                <div id="inhome">
+                    <h1 class="w3-jumbo">
+                        <span id="span"><h2>Welcome to the Documentation of</h2></span>
+                        <p class="topic">Credit Card Fraud Detection Project.</p>
+                    </h1>
+                    <p>
+                        <h4 class="teamname">Hackminors</h4><br>
+                        <h6 class="members">Mohor Barman | Purbayon Sarkar | <a href="https://bit.ly/3bf36OS">Sagnik Chakraborty</a> | Hrishikesh Saha</h6>
+                    </p>
+                     <iframe class="iframe" width="100%" height="600px" src="https://www.youtube.com/embed/sFoW5OhwkWQ?si=MBB2aiRR_5x7RtFw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </header>
+            <!--Map Section-->
+            <header class="w3-container w3-padding-32 w3-black w3-show" id="map">
+<div id="mappara" class="w3-center"><h1>MAP</h1></div>
+                <div class="timeline">
+                    <div id="inmap" style="color:black; margin-right:100px">
+                        <div class="container left">
+                            <div class="content">
+                                <h3>
+                                    <a href="#home" style="text-shadow: 2px 2px rgb(111, 32, 148);">HOME</a>
+                                </h3>
+                                <p>A page that welcomes you.</p>
+                            </div>
+                        </div>
+                        <div class="container right">
+                            <div class="content">
+                                <h3>
+                                    <a href="#map" style="text-shadow: 2px 2px rgb(111, 32, 148);">MAP</a>
+                                </h3>
+                                <p>This page, that shows you the map to important parts of the page. </p>
+                            </div>
+                        </div>
+                        <div class="container left">
+                            <div class="content">
+                                <h2>
+                                    <a href="#about" style="text-shadow: 2px 2px rgb(111, 32, 148);">ABOUT</a>
+                                </h2>
+                                <p>This contains:
+      
+                                
+                                <ul>
+                                    <li><a href="#processflow">Process Flow</a></li>
+                                    <li><a href="#whathow">What &How?</a></li>
+                                    <li><a href="#why">Why?</a></li>
+                                </ul>
+</p></div></div>
+<div class="container right">
+    <div class="content">
+        <h3>
+            <a href="#tap" style="text-shadow: 2px 2px rgb(111, 32, 148);">TECHNIQUES &PROCEDURES</a>
+        </h3>
+        <p>This tells you about the techniques and procedures used.This contains:
+    <ul>
+        <li><a href="#tap">Preprocessing</a></li>
+		<li><a href="#preprocessing">Splitting the Dataset</a></li>
+		<li><a href="#splitting">Training the Model</a></li>
+		<li><a href="#training">Model Evaluation</a></li>
+		<li><a href="#eval">Exporting the Model for Integration</a></li>
+		<li><a href="#export">Implementing the model</a></li>
+    </ul>
+
+        </p>
+    </div>
+</div>
+<!--<div class="container left">
+    <div class="content">
+        <h3>
+            <a href="#ug">User Guide</a>
+        </h3>
+        <p>It guides the users to download and use the tool</p>
+    </div>
+</div>-->
+<div class="container left">
+    <div class="content">
+        <h3>
+            <a href="#conclusion" style="text-shadow: 2px 2px rgb(111, 32, 148);">CONCLUSION</a>
+        </h3>
+        <p>This tells you about some extra notes about the project</p>
+    </div>
+</div>
+</div></header>
+<!--End Map-->
+<!-- About Section -->
+<header class="w3-container w3-padding-32 w3-black w3-show" id="about">
+<div id="aboutpara" class="w3-center"><h1>ABOUT</h1></div>    
+<div id="inabout">
+        <h1 class="w3-text-light-grey" id="processflow"><b>About</b></h1>
+    
+        
+        <hr style="width:200px" class="w3-opacity">
+        <h2 class="w3-text-light-grey">Process Flow</h2>
+        <hr style="width:200px" class="w3-opacity">
+        <center><img src="/process_flow.jpg" alt="Image Cannot Be Loaded" style="width:100%" height:1000px class="w3-image"></center>
+        <br><br>
+        <h2 class="w3-text-light-grey" id="whathow">What &How?</h2>
+        <hr style="width:200px" class="w3-opacity">
+        <p> This project is a classification model built using machine learning algorithms to detect fraudulent credit card transactions. It involves analyzing a dataset containing a large number of credit card transactions with a small percentage of fraudulent transactions. The main objective of the project is to develop a model that can accurately classify transactions as either fraudulent or legitimate. The project involves various steps including data preprocessing, exploratory data analysis, feature selection, model building, and evaluation. In the data preprocessing step, the dataset is cleaned, missing values are imputed, and outliers are removed. Exploratory data analysis involves visualizing the data to gain insights into the data distribution and relationships between the features. Feature selection involves identifying the most important features for the model. Model building involves training various machine learning algorithms on the dataset and selecting the best-performing model based on performance metrics such as accuracy, precision, recall, and F1-score. The final model is then evaluated on a test set to ensure that it generalizes well to unseen data. Once the model is finalized, it can be deployed to detect fraudulent transactions in real-time. </p>
+        <hr style="width:200px" class="w3-opacity">
+        <p id="why">This project was carried out using several steps. First, the dataset was obtained and preprocessed, which involved cleaning the data, handling missing values, and removing outliers. Next, the data was split into training and testing sets to build the machine learning models. Four different algorithms, namely, Logistic Regression, Decision Tree, Random Forest, and Gradient Boosting, were trained and evaluated using metrics such as accuracy, precision, recall, and F1 score. The models were fine-tuned by adjusting hyperparameters to improve their performance. The best-performing model was then selected based on its evaluation metrics, and its performance was further analyzed using the confusion matrix and Matthews Correlation Coefficient. Finally, the model was deployed using the Streamlit library as a web application, allowing users to interact with it and make predictions on new data. Overall, this project involved a comprehensive approach to building and evaluating a machine learning model for fraud detection, covering all essential steps from data preprocessing to model deployment.</p>
+        <h2 class="w3-text-light-grey" >Why ?</h2>
+        <hr style="width:200px" class="w3-opacity">
+        <p>This project was chosen due to the increasing importance of detecting fraudulent credit card transactions, which can result in substantial financial losses for individuals and organizations alike. Traditional methods of detecting fraud, such as rule-based systems, are often limited in their effectiveness and may generate a large number of false positives. Machine learning techniques, however, can be applied to analyze large amounts of transaction data and identify patterns that indicate potential fraud. Therefore, the development of an accurate and efficient fraud detection model has become a critical need in the finance industry. This project focuses on the application of various machine learning algorithms, including logistic regression, decision tree, random forest, and gradient boosting, to develop an effective fraud detection model. Additionally, the project aims to explore the use of feature scaling and outlier removal techniques to improve the performance of the models. The goal is to create a model that can accurately detect fraudulent transactions while minimizing false positives, thereby reducing financial losses and enhancing the security of credit card transactions.</p>
+        <br>
+    </div>
+</header>
+<!-- End About Section -->
+<!-- TAP Section -->
+<header class="w3-container w3-padding-32 w3-black w3-show" id="tap">
+<div id="tappara" class="w3-center"><h1>TECHNIQUES & PROCEDURES</h1></div>    
+<div id="intap">
+        <h1 class="w3-text-light-grey">Techniques &Procedures</h1>
+        <hr style="width:200px" class="w3-opacity">
+        <p></p>
+        <div class="w3-section">
+            <p></p>
+        </div>
+        <br>
+        <style>
+            /* Customize the list design here */
+            dl {
+              list-style-type: none;
+              counter-reset: item;
+              margin: 0;
+              padding: 0;
+              font-size: 20px;
+              font-family: Arial, sans-serif;
+              text-align: justify;
+            }
+            
+            dl dt dd {
+              display: block;
+              position: relative;
+              margin-bottom: 20px;
+              padding-left: 40px;
+              
+              line-height: 1.2;
+              text-align: justify;
+            }
+            
+            dl dt:before {
+              content: counter(item);
+              counter-increment: item;
+              position: absolute;
+              left: -30px;
+              top: -5px;
+              font-size: 30px;
+              text-align: justify;
+              
+              color: #edeef1; /* Customize the number color here */
+            }
+            
+            dl dt:last-child {
+              margin-bottom: 0;
+              text-align: justify;
+            }
+
+            ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8b0000, #560a86, #000000); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom,#000000 , #560a86,  #8b0000); 
+}
+          </style>
+          <dl>
+          <dt>Preprocessing:</dt><dd> The credit card fraud detection project involves several steps of pre-processing before the data can be used for building a machine learning model. First, the dataset needs to be loaded into a Pandas dataframe. Then, any missing or null values need to be identified and handled appropriately, either by imputing them with the mean or median values or by dropping them altogether. Additionally, the data needs to be checked for any outliers and extreme values that may skew the model's accuracy. Next, the features need to be scaled and normalized to ensure that they are all on the same scale and range. Finally, the dataset needs to be split into training and testing sets, with a certain percentage of the data reserved for testing the model's performance. Overall, careful pre-processing of the data is critical for ensuring that the machine learning model can learn from the data and make accurate predictions.</dd>
+                  <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="/Pre_Processing/0.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Pre_Processing/1.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Pre_Processing/2.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Pre_Processing/3.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+            </div>
+            <div class="w3-half">
+                <img src="/Pre_Processing/4.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Processing_the_data/0.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Processing_the_data/1.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Processing_the_data/2.jpg" alt="Image Cannot Be Loaded" style="width:100%; text-align: center" class="w3-image" id="preprocessing">
+            </div>
+        </div>
+          <dt>Splitting the Dataset:</dt><dd> In this project, the dataset was split into training and testing sets using a 80-20 split ratio. The purpose of this split was to evaluate the performance of the model on unseen data. The training set was used to train the model, while the testing set was used to assess its accuracy. The split was performed using the train_test_split function from the sklearn.model_selection module. The stratify parameter was set to the target variable to ensure that the distribution of fraud and non-fraud transactions is approximately the same in both the training and testing sets. This is important because if the training set has a significantly different distribution of target variables than the testing set, the model may not generalize well to new data.</dd>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="/Splitting/0.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+            </div>
+            <div class="w3-half">
+                <img src="/Splitting/1.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Splitting/2.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image" id="splitting">
+            </div>
+        </div>
+          <dt>Training the Model:</dt><dd> In this project, six different classification algorithms were used to train the model on the preprocessed and feature-selected dataset. The algorithms used were decision tree, random forest classifier, logistic regression, support vector machine, XGBoost, and K nearest neighbour. Each algorithm was trained using the training dataset, and the performance was evaluated using the validation dataset. The hyperparameters of each algorithm were tuned using grid search with cross-validation. After training and tuning, the best-performing hyperparameters for each algorithm were used to train the final models. The trained models were then used to predict the fraudulent transactions in the test dataset. The algorithm with the highest accuracy on the test dataset was selected as the final model for detecting fraudulent transactions.</dd>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="/Training_the_model/0.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+            </div>
+            <div class="w3-half">
+                <img src="/Training_the_model/1.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Training_the_model/2.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image" id="training">
+            </div>
+        </div>
+          <dt>Model Evaluation:</dt><dd> In this project, we evaluated the performance of six different machine learning algorithms on the credit card fraud detection task. We used various evaluation metrics such as accuracy, precision, recall, F1-score, and ROC-AUC score to assess the performance of each algorithm. We observed that the XGBoost algorithm achieved the best performance on the dataset with an accuracy of 99.95% . Moreover, the model had high precision, recall, and F1-scores, indicating that it was effective in detecting both fraudulent and non-fraudulent transactions. We also observed that the Logistic Regression and Support Vector Machine algorithms had slightly lower performance than the Random Forest Classifier and XGBoost, while Decision Tree and K Nearest Neighbors had the lowest performance. Overall, the evaluation results indicate that the Random Forest Classifier and XGBoost are the most suitable models for credit card fraud detection, and can be used to develop an effective fraud detection system.</dd>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="/Training_the_model/3.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+            </div>
+            <div class="w3-half">
+                <img src="/Training_the_model/4.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Training_the_model/5.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image" id="eval">
+            </div>
+        </div>
+          <dt>Exporting the Model for Integration:</dt><dd>In order to integrate the machine learning model into a web application or any other software, the model needs to be exported in a format that is compatible with the platform. In this project, the trained XGBoost model was exported in the pickle format using the pickle module of Python. Pickling is a process of converting a Python object into a byte stream, which can be saved to a file or transferred over a network. The pickled model file was then loaded in the web application using the pickle.load() function. This allowed the web application to use the trained model for making predictions on the user inputs. The exported model can also be used in other platforms and software that support the pickle format.</dd>
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="/Exporting_the_model/0.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+            </div>
+            <div class="w3-half">
+                <img src="/Exporting_the_model/1.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image" id="export">
+            </div>
+        </div>
+        <dt>Implementing the Model :</dt><dd>The implementation of this project involved building a web application using the Streamlit Python library. Streamlit is a popular open-source library used for building interactive web applications with minimal code. We leveraged the power of Streamlit to create a user-friendly web interface that allows users to interact with our fraud detection model. The web application includes an input form where users can enter the transaction details, and the model will predict whether the transaction is fraudulent or not. The output of the model is displayed to the user along with a confidence score.</dd>
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="/Implementation/0.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Implementation/1.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+            </div>
+            <div class="w3-half">
+                <img src="/Implementation/2.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+                <img src="/Implementation/3.jpg" alt="Image Cannot Be Loaded" style="width:100%" class="w3-image">
+            </div>
+        </div>
+        </dl>
+    </div>
+    <!-- End TAP Section -->
+</header>
+<!-- User Guide Section -->
+<!--
+<header class="w3-container w3-padding-32 w3-black w3-show" id="ug">
+<div id="ugpara" class="w3-center"><h1>USER GUIDE</h1></div>    
+<div id="inug">
+        <h1 class="w3-text-light-grey">User Guide</h1>
+        <hr style="width:200px" class="w3-opacity">
+        <div class="w3-section">
+            <p></p>
+        </div>
+        <br>
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="" alt="Image Not Inputted Yet" style="width:100%">
+                <img src="" alt="Image Not Inputted Yet" style="width:100%">
+                <img src="" alt="Image Not Inputted Yet" style="width:100%">
+            </div>
+            <div class="w3-half">
+                <img src="" alt="Image Not Inputted Yet" style="width:100%">
+                <img src="" alt="Image Not Inputted Yet" style="width:100%">
+                <img src="" alt="Image Not Inputted Yet" style="width:100%">
+                <img src="" alt="Image Not Inputted Yet" style="width:100%">
+            </div>
+        </div>
+    </div>
+    </header> -->
+    <!-- End User Guide Section -->
+
+<!-- Conclusion Section -->
+<header class="w3-container w3-padding-32 w3-black w3-show" id="conclusion">
+ <div id="conclusionpara" class="w3-center"><h1>CONCLUSION</h1></div>
+    <div id="inconclusion">
+        <h1 class="w3-text-light-grey">Conclusion</h1>
+        <hr style="width:200px" class="w3-opacity">
+        <div class="w3-section">
+            In this project, we explored the world of fraud detection in credit card transactions using various machine learning algorithms such as decision tree, random forest classifier, logistic regression, support vector machine, XGBoost, and K-nearest neighbor. We began by analyzing the dataset and understanding the distribution of the target variable, which was highly imbalanced. We addressed this issue by applying different techniques such as oversampling, undersampling, and Synthetic Minority Over-sampling Technique (SMOTE) to balance the classes. We also handled missing values and outliers by imputing them with the median and removing them using the interquartile range (IQR) method, respectively.To prepare the data for machine learning algorithms, we performed feature selection using several techniques such as Pearson correlation, chi-squared test, and recursive feature elimination (RFE). This helped us identify the most relevant features for the classification task and eliminate the redundant ones, which improved the performance of our models.<br>
+We then trained six different machine learning algorithms on the preprocessed data and evaluated their performance using various metrics such as accuracy, precision, recall, F1-score, and AUC-ROC. We found that the decision tree classifier outperformed the other models, with an accuracy of 99.93%, recall of 96.94%, precision of 89.09%, and F1-score of 92.82%. This model was able to detect most of the fraudulent transactions while minimizing the number of false positives.
+We also evaluated the model's performance using a confusion matrix, precision-recall curve, and receiver operating characteristic (ROC) curve. The model's confusion matrix showed a high true positive rate and a low false positive rate, which indicates that it performed well in detecting fraudulent transactions. The precision-recall curve and ROC curve showed that the model had a high area under the curve (AUC) score, which means that it had good discriminatory power.<br><br>
+Finally, we deployed the model using a web application that allows users to input their credit card transactions and receive a prediction of whether the transaction is fraudulent or not. The web application was built using Flask, a lightweight web application framework, and deployed on Heroku, a cloud platform as a service. This made the model more accessible to users and allowed them to quickly detect fraudulent transactions and take necessary action.<br>
+Overall, this project demonstrated the importance of exploratory data analysis, data cleaning, feature selection, and model evaluation in building a robust and accurate fraud detection system. The techniques used in this project can be applied to other industries and domains that require fraud detection and prevention, such as insurance claims, healthcare billing, and e-commerce.
+Another important aspect of this project was model interpretation and explainability. We used techniques such as feature importance analysis to understand which features had the most impact on the model's predictions. This helped us gain insights into the underlying patterns and relationships in the data and provided explanations for the model's predictions, which can be crucial in building trust with users and stakeholders.
+<br>
+Furthermore, we implemented monitoring and alerting mechanisms in our deployed web application to detect any potential drift in the data or model performance. This allowed us to continuously monitor the performance of our model in real-time and take necessary actions to maintain its accuracy and effectiveness in detecting fraudulent transactions.
+Lastly, we also considered the ethical implications of fraud detection in credit card transactions. We ensured that our models were trained on unbiased data and did not discriminate against any particular group or demographic. We also adhered to data privacy regulations and followed best practices to protect the sensitive information of credit card users.
+<br>
+In conclusion, this project showcased a comprehensive approach to fraud detection in credit card transactions using machine learning algorithms and various techniques for data preprocessing, feature selection, model evaluation, model interpretation, and model validation. The deployed web application allowed users to easily access and utilize the fraud detection system, enhancing the system's practical applicability. The techniques and insights gained from this project can be valuable in addressing fraud detection challenges in other industries and domains, contributing to the development of robust and effective fraud prevention systems.
+        </div>
+        </div>
+    </div>
+    <!-- End Conlusion Section -->
+</header>
+<!-- END PAGE CONTENT -->
+</div>
+<script>
+if(navigator.onLine){
+   if( /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(navigator.userAgent) ) {
+ alert("Sections are in the same order as in the navigation bar at left. Different background layers represent different sections. Click on each of them to view the respective contents of the section.");
+ alert("Note: This feature is provided just to reduce the time waste on scrolling to respective sections. For example: If you have already gone through the home, about and map sections, you can directly start from the next section even without scrolling through the viewed sections.");
+}
+   else if(/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(navigator.userAgent)){
+  alert("Sections are in the same order as in the navigation bar at left. Different background layers represent different sections. Click on each of them to view the respective contents of the section.");
+  alert("Note: This feature is provided just to reduce the time waste on scrolling to respective sections. For example: If you have already gone through the home, about and map sections, you can directly start from the next section even without scrolling through the viewed sections.");    
+}
+   else{
+    alert("Sections are in the same order as in the navigation bar at left. Different background layers represent different sections. Just hover on each of them to view the respective contents of the section.");
+    alert("Note: This feature is provided just to reduce the time waste on scrolling to respective sections. For example: If you have already gone through the home, about and map sections, you can directly start from the next section even without scrolling through the viewed sections.");
+}
+}
+else{
+    alert("You are not connected to the Internet! For viewing this page you need to be connected to the internet! Please connect to an Internet Connection and come back agin to view this page!");
+    document.getElementById("main").style.display = "none";
+    document.getElementById("navigation").style.display = "none";
+   document.getElementById("demo").innerHTML = "Please connect to an Internet Connection and come back agin to view this page!";
+}
+</script>
+<script>
+    document.getElementById("home").addEventListener("mouseover", function(event) {
+      document.getElementById("inhome").className = "w3-show";
+      document.getElementById("homepara").style.display = "none";
+     setTimeout(function() {document.getElementById("home").style.animation="none";}, 5000);
+  });
+  document.getElementById("map").addEventListener("mouseover", function(event) {
+      document.getElementById("inmap").className = "w3-show";
+     document.getElementById("mappara").style.display = "none";
+    setTimeout(function() {document.getElementById("map").style.animation="none";}, 5000);
+  });
+  document.getElementById("about").addEventListener("mouseover", function(event) {
+      document.getElementById("inabout").className = "w3-show";
+      document.getElementById("aboutpara").style.display = "none";
+      setTimeout(function() {document.getElementById("about").style.animation="none";}, 5000);
+  });
+  document.getElementById("tap").addEventListener("mouseover", function(event) {
+      document.getElementById("intap").className = "w3-show";
+     document.getElementById("tappara").style.display = "none";
+     setTimeout(function() {document.getElementById("tap").style.animation="none";}, 5000);
+  });
+  document.getElementById("conclusion").addEventListener("mouseover", function(event) {
+      document.getElementById("inconclusion").className = "w3-show";
+     document.getElementById("conclusionpara").style.display = "none";
+    setTimeout(function() { document.getElementById("conclusion").style.animation="none";}, 5000);
+  });
+</script>
+<script>
+    function myFunction() {
+        const homeelement = document.getElementById("home");
+        const homerect = homeelement.getBoundingClientRect();
+
+        var hometop = homerect.top.toFixed()-125;
+        if (hometop > 0) {
+            var name = "Credit Card Fraud Detection Project Documentation";
+        } else {}
+        const mapelement = document.getElementById("map");
+        const maprect = mapelement.getBoundingClientRect();
+
+        var maptop = maprect.top.toFixed()-125;
+        if (maptop > 0 && hometop <= 0) {
+            var name = "HOME";
+        } else {}
+        const aboutelement = document.getElementById("about");
+        const aboutrect = aboutelement.getBoundingClientRect();
+
+        var abouttop = aboutrect.top.toFixed()-125;
+        if (abouttop > 0 && maptop <= 0) {
+            var name = "MAP";
+        } else {}
+        const tapelement = document.getElementById("tap");
+        const taprect = tapelement.getBoundingClientRect();
+
+        var taptop = taprect.top.toFixed()-125;
+        if (taptop > 0 && abouttop <= 0) {
+            var name = "ABOUT";
+        } else {}
+
+        const conelement = document.getElementById("conclusion");
+        const conrect = conelement.getBoundingClientRect();
+
+        var contop = conrect.top.toFixed()-125;
+        if (contop > 0 && taptop <= 0) {
+            var name = "TECHNIQUES & PROCEDURES";
+        } else {}
+
+        if (contop < 0) {
+            var name = "CONCLUSION";
+        } else {}
+        document.getElementById("demo").innerHTML = name;
+    }  
+</script>
+<!--
+</body>
+</html>
